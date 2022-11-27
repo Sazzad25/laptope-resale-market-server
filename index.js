@@ -84,6 +84,12 @@ async function run(){
             res.status(403).send({accessToken: ''})
         });
 
+        app.get('/buyers', async(req, res) =>{
+            const query = {};
+            const users = await buyersCollection.find(query).toArray();
+            res.send(users);
+        })
+
         app.post('/buyers', async(req, res) =>{
             const user = req.body;
             const result = await buyersCollection.insertOne(user);
