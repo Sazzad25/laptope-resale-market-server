@@ -21,16 +21,25 @@ async function run(){
         const categoryCollection = client.db('LaptopResale').collection('category');
         const productCollection = client.db('LaptopResale').collection('product');
 
+        const bookingCollection = client.db('LaptopResale').collection('bookings');
+
         app.get('/category', async(req, res) => {
             const query = {};
             const options = await categoryCollection.find(query).toArray();
             res.send(options);
-        }),
+        });
 
         app.get('/product', async(req, res) => {
             const query = {};
             const option = await productCollection.find(query).toArray();
             res.send(option);
+        });
+
+        app.post('/bookings', async(req, res) =>{
+            const booking = req.body
+            console.log(booking);
+            const result = await bookingCollection.insertOne(booking);
+            res.send(result);
         })
 
         // app.get('/product/:id', async(req, res) => {
