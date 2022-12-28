@@ -192,27 +192,6 @@ async function run(){
             res.send(result);
         })
 
-
-        // app.get('/product/:id', async(req, res) => {
-        //     const id = req.params.id;
-        //     const query = (category_id == id);
-        //     const products = await productCollection.filter(query);
-        //     res.send(products);
-        // })
-
-        // app.get('/category/:id',async (req, res) => {
-        //     const id = req.params.category_id;
-        //     // const query = {};
-        //     // const services = productCollection.find(query);
-        //     // const laptops = await services.toArray();
-           
-            
-        //       const products = await productCollection.filter(n => n.category_id === id);
-        //       res.send(products);
-            
-            
-        //   })
-
     }
     finally{
 
